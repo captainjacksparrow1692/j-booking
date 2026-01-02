@@ -15,6 +15,9 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     //история брони пользователя
     Page<Booking> findByUserIdOrderByCreatedAtDesc (Long userId, Pageable pageable);
 
+    //найти всех по айди
+    Page<Booking> findAllByUserId(Long userId, Pageable pageable);
+
     //поиск брони по статусу
     Page<Booking> findByStatus(BookingStatus status, Pageable pageable);
 
