@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @FieldDefaults(level = lombok.AccessLevel.PRIVATE)
 @ConfigurationProperties(prefix = "spring.data.redis")
-public class RedisConfig {
+public class RedisProps {
 
     String host;
     int port;
