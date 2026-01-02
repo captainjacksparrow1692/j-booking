@@ -1,13 +1,13 @@
 package uzumtech.j_booking.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import uzumtech.j_booking.dto.response.HotelCardResponse;
 import uzumtech.j_booking.dto.response.HotelDetailResponse;
 
-import java.util.List;
-
 public interface HotelService {
-    //для главной страницы или поиска
-    List<HotelCardResponse> getAllHotelCards();
-    //для страницы конкретного отеля
-    List<HotelDetailResponse>  getHotelDetails();
+    // Убедись, что тут Page, а не List
+    Page<HotelCardResponse> getAllHotelCards(Pageable pageable);
+
+    HotelDetailResponse getHotelDetails(Long id);
 }
