@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @Builder
 public record ErrorDto(
+        int code,
         String message,
         String errorCode,
         LocalDateTime timestamp
