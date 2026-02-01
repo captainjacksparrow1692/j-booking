@@ -29,8 +29,8 @@ public class GlobalExceptionHandler {
         var errorBody = ErrorDto
                 .builder()
                 .code(e.getCode())
-                .type(e.getErrorType())
                 .message(e.getMessage())
+                .type(e.getErrorType())
                 .build();
 
         return ResponseEntity.status(e.getStatus()).body(errorBody);
@@ -55,9 +55,9 @@ public class GlobalExceptionHandler {
 
         var error = ErrorDto
                 .builder()
-                .type(ErrorType.VALIDATION)
                 .code(VALIDATION_ERROR_CODE.getCode())
                 .message(VALIDATION_ERROR_CODE.getMessage())
+                .type(ErrorType.VALIDATION)
                 .validationErrors(validationErrors)
                 .build();
 
@@ -71,9 +71,9 @@ public class GlobalExceptionHandler {
 
         var error = ErrorDto
                 .builder()
-                .type(ErrorType.INTERNAL)
                 .code(INVALID_REQUEST_PARAM_ERROR_CODE.getCode())
                 .message(e.getMessage())
+                .type(ErrorType.INTERNAL)
                 .build();
 
         return ResponseEntity.badRequest().body(error);
@@ -86,9 +86,9 @@ public class GlobalExceptionHandler {
 
         var error = ErrorDto
                 .builder()
-                .type(ErrorType.INTERNAL)
                 .code(JSON_NOT_VALID_ERROR_CODE.getCode())
                 .message(e.getMessage())
+                .type(ErrorType.INTERNAL)
                 .build();
 
         return ResponseEntity.badRequest().body(error);
@@ -113,9 +113,9 @@ public class GlobalExceptionHandler {
 
         var error = ErrorDto
                 .builder()
-                .type(ErrorType.INTERNAL)
                 .code(INTERNAL_TIMEOUT_ERROR_CODE.getCode())
                 .message(e.getMessage())
+                .type(ErrorType.INTERNAL)
                 .build();
 
         return ResponseEntity.status(HttpStatus.REQUEST_TIMEOUT).body(error);
@@ -128,9 +128,9 @@ public class GlobalExceptionHandler {
 
         var error = ErrorDto
                 .builder()
-                .type(ErrorType.INTERNAL)
                 .code(INTERNAL_SERVICE_ERROR_CODE.getCode())
                 .message(e.getMessage())
+                .type(ErrorType.INTERNAL)
                 .build();
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
